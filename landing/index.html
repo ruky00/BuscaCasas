@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuscaCasas — Oportunidades inmobiliarias antes que nadie</title>
+    <meta name="description" content="Detectamos pisos por debajo de mercado con IA y te los enviamos antes que a nadie. Para inversores inmobiliarios en España.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <div class="container nav__inner">
+            <a href="#" class="nav__logo">
+                <span class="nav__logo-icon">&#9678;</span> BuscaCasas
+            </a>
+            <div class="nav__links">
+                <a href="#como-funciona">Cómo funciona</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#faq">FAQ</a>
+                <a href="#cta-final" class="btn btn--small btn--nav">Solicitar acceso</a>
+            </div>
+            <button class="nav__hamburger" id="hamburger" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="nav__mobile" id="mobileMenu">
+            <a href="#como-funciona">Cómo funciona</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#faq">FAQ</a>
+            <a href="#cta-final" class="btn btn--small">Solicitar acceso</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero__grid">
+            <div class="hero__content">
+                <div class="hero__badge">Acceso anticipado — Plazas limitadas</div>
+                <h1 class="hero__title">
+                    Encuentra pisos por debajo de mercado
+                    <span class="hero__title-accent">antes que nadie</span>
+                </h1>
+                <p class="hero__subtitle">
+                    Escaneamos los principales portales inmobiliarios de España cada día,
+                    analizamos precios con IA y te enviamos solo las oportunidades reales.
+                    Sin perder horas buscando.
+                </p>
+                <form class="hero__form" id="heroForm">
+                    <div class="form-group">
+                        <input type="email" id="heroEmail" placeholder="tu@email.com" required autocomplete="email">
+                        <button type="submit" class="btn btn--primary btn--lg">
+                            <span class="btn__text">Solicitar acceso</span>
+                            <span class="btn__loader" hidden></span>
+                        </button>
+                    </div>
+                    <p class="hero__form-note">Sin spam. Sin tarjeta. Solo oportunidades.</p>
+                    <div class="form-success" id="heroSuccess" hidden>
+                        <span class="form-success__icon">&#10003;</span>
+                        <span>¡Estás dentro! Te escribiremos pronto con tu primera selección.</span>
+                    </div>
+                </form>
+                <div class="hero__social-proof">
+                    <div class="hero__avatars">
+                        <span class="avatar" style="background:#6366f1;">JL</span>
+                        <span class="avatar" style="background:#0ea5e9;">MR</span>
+                        <span class="avatar" style="background:#10b981;">AP</span>
+                        <span class="avatar" style="background:#f59e0b;">CR</span>
+                    </div>
+                    <p><strong>+120 inversores</strong> ya tienen acceso anticipado</p>
+                </div>
+            </div>
+            <div class="hero__visual">
+                <div class="mock-email">
+                    <div class="mock-email__header">
+                        <div class="mock-email__dot mock-email__dot--red"></div>
+                        <div class="mock-email__dot mock-email__dot--yellow"></div>
+                        <div class="mock-email__dot mock-email__dot--green"></div>
+                        <span class="mock-email__title">Inbox</span>
+                    </div>
+                    <div class="mock-email__subject">
+                        <div class="mock-email__from">BuscaCasas IA</div>
+                        <div class="mock-email__subj">3 oportunidades detectadas en Madrid</div>
+                        <div class="mock-email__preview">Hemos encontrado pisos un 18% por debajo de mercado...</div>
+                    </div>
+                    <div class="mock-email__body">
+                        <div class="mock-property">
+                            <div class="mock-property__badge mock-property__badge--hot">-22% vs mercado</div>
+                            <div class="mock-property__title">Piso 3 hab. en Chamberí</div>
+                            <div class="mock-property__price">185.000 €<span class="mock-property__avg">Mercado: 238.000 €</span></div>
+                            <div class="mock-property__meta">78 m² · 3 hab · Exterior · Ascensor</div>
+                        </div>
+                        <div class="mock-property">
+                            <div class="mock-property__badge">-15% vs mercado</div>
+                            <div class="mock-property__title">Ático en Tetuán con terraza</div>
+                            <div class="mock-property__price">210.000 €<span class="mock-property__avg">Mercado: 247.000 €</span></div>
+                            <div class="mock-property__meta">65 m² · 2 hab · Terraza 20m²</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="section section--dark" id="problema">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__label">El problema</span>
+                <h2 class="section__title">Buscar oportunidades inmobiliarias a mano es una pérdida de tiempo</h2>
+            </div>
+            <div class="problems__grid">
+                <div class="problem-card" data-animate>
+                    <div class="problem-card__icon">&#9200;</div>
+                    <h3>Horas perdidas cada día</h3>
+                    <p>Revisas Fotocasa, Idealista, Yaencontre, Redpiso... uno por uno. Filtras, comparas, y la mayoría ya están vendidos o sobrevalorados.</p>
+                </div>
+                <div class="problem-card" data-animate>
+                    <div class="problem-card__icon">&#128200;</div>
+                    <h3>Imposible comparar precios reales</h3>
+                    <p>¿Está por debajo de mercado o es una trampa? Sin datos agregados, inviertes a ciegas y asumes riesgos innecesarios.</p>
+                </div>
+                <div class="problem-card" data-animate>
+                    <div class="problem-card__icon">&#9889;</div>
+                    <h3>Las buenas oportunidades vuelan</h3>
+                    <p>Un piso un 20% por debajo de mercado no dura 48 horas. Si lo ves tarde, otro inversor ya dejó la señal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCIÓN / CÓMO FUNCIONA -->
+    <section class="section" id="como-funciona">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__label">La solución</span>
+                <h2 class="section__title">Tu equipo de análisis inmobiliario, automatizado</h2>
+                <p class="section__desc">BuscaCasas hace en minutos lo que tardarías días. Tres pasos, cero esfuerzo.</p>
+            </div>
+            <div class="steps__grid">
+                <div class="step-card" data-animate>
+                    <div class="step-card__number">01</div>
+                    <div class="step-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                    </div>
+                    <h3>Escaneamos todos los portales</h3>
+                    <p>Nuestros bots recorren Fotocasa, Yaencontre, Redpiso y más portales cada día. Extraemos precio, ubicación, metros, características y URL de cada inmueble.</p>
+                </div>
+                <div class="step-card" data-animate>
+                    <div class="step-card__number">02</div>
+                    <div class="step-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 12l6.5-6.5"/></svg>
+                    </div>
+                    <h3>La IA analiza y filtra</h3>
+                    <p>Comparamos cada inmueble con precios de mercado por zona. La IA detecta anomalías de precio, calcula el descuento real y puntúa cada oportunidad.</p>
+                </div>
+                <div class="step-card" data-animate>
+                    <div class="step-card__number">03</div>
+                    <div class="step-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </div>
+                    <h3>Recibes solo lo que importa</h3>
+                    <p>Te enviamos un email limpio con las mejores oportunidades, listas para que actúes. Sin ruido, sin duplicados, sin pisos que ya no existen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA INTERMEDIO -->
+    <section class="section section--cta">
+        <div class="container">
+            <div class="cta-block" data-animate>
+                <h2>Deja de buscar. Empieza a encontrar.</h2>
+                <p>Recibe tu primer informe con oportunidades reales en Madrid.</p>
+                <form class="cta-block__form" id="midForm">
+                    <div class="form-group">
+                        <input type="email" id="midEmail" placeholder="tu@email.com" required autocomplete="email">
+                        <button type="submit" class="btn btn--primary">
+                            <span class="btn__text">Quiero acceso</span>
+                            <span class="btn__loader" hidden></span>
+                        </button>
+                    </div>
+                    <div class="form-success" id="midSuccess" hidden>
+                        <span class="form-success__icon">&#10003;</span>
+                        <span>¡Registrado! Prepárate para recibir oportunidades.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="section" id="beneficios">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__label">Ventajas</span>
+                <h2 class="section__title">¿Por qué inversores eligen BuscaCasas?</h2>
+            </div>
+            <div class="benefits__grid">
+                <div class="benefit-card" data-animate>
+                    <div class="benefit-card__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Ahorra +10 horas por semana</h3>
+                    <p>Dejamos de lado el trabajo manual. Tú solo revisas las oportunidades que ya hemos filtrado por ti.</p>
+                </div>
+                <div class="benefit-card" data-animate>
+                    <div class="benefit-card__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3>Decisiones basadas en datos</h3>
+                    <p>Cada oportunidad incluye el precio de mercado estimado, el descuento real y las características clave. Invierte con información, no con intuición.</p>
+                </div>
+                <div class="benefit-card" data-animate>
+                    <div class="benefit-card__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3>Ventaja de velocidad</h3>
+                    <p>Recibes oportunidades el mismo día que se publican. Mientras otros buscan, tú ya estás llamando.</p>
+                </div>
+                <div class="benefit-card" data-animate>
+                    <div class="benefit-card__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Multi-portal, sin duplicados</h3>
+                    <p>Cruzamos datos de Fotocasa, Yaencontre, Redpiso y más. Un solo informe limpio, sin repeticiones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EJEMPLO REAL -->
+    <section class="section section--dark" id="ejemplo">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__label">Así se ve</span>
+                <h2 class="section__title">Un informe real que recibirías en tu bandeja</h2>
+                <p class="section__desc">Este es el tipo de email que enviamos cada día a nuestros usuarios. Datos claros, oportunidades accionables.</p>
+            </div>
+            <div class="email-preview" data-animate>
+                <div class="email-preview__chrome">
+                    <div class="email-preview__dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="email-preview__bar">De: BuscaCasas IA &lt;alertas@buscacasas.es&gt;</div>
+                </div>
+                <div class="email-preview__content">
+                    <div class="email-preview__header-section">
+                        <h3>&#128200; Tu informe diario — 3 oportunidades en Madrid</h3>
+                        <p class="email-preview__date">10 de abril, 2026 · Análisis de 847 inmuebles</p>
+                    </div>
+                    <div class="email-preview__summary">
+                        <div class="summary-stat">
+                            <span class="summary-stat__number">847</span>
+                            <span class="summary-stat__label">Inmuebles analizados</span>
+                        </div>
+                        <div class="summary-stat">
+                            <span class="summary-stat__number">3</span>
+                            <span class="summary-stat__label">Oportunidades detectadas</span>
+                        </div>
+                        <div class="summary-stat">
+                            <span class="summary-stat__number">-18%</span>
+                            <span class="summary-stat__label">Descuento medio</span>
+                        </div>
+                    </div>
+
+                    <div class="email-preview__listing">
+                        <div class="listing__rank listing__rank--gold">1</div>
+                        <div class="listing__content">
+                            <div class="listing__tag listing__tag--hot">Oportunidad alta</div>
+                            <h4>Piso 3 habitaciones en Chamberí</h4>
+                            <div class="listing__price-row">
+                                <span class="listing__price">185.000 €</span>
+                                <span class="listing__discount">-22% vs mercado (238.000 €)</span>
+                            </div>
+                            <p class="listing__details">78 m² · 3 hab · Exterior · Con ascensor · 2ª planta</p>
+                            <p class="listing__source">Fuente: Fotocasa · Publicado hace 4 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="email-preview__listing">
+                        <div class="listing__rank">2</div>
+                        <div class="listing__content">
+                            <div class="listing__tag">Buen precio</div>
+                            <h4>Ático con terraza en Tetuán</h4>
+                            <div class="listing__price-row">
+                                <span class="listing__price">210.000 €</span>
+                                <span class="listing__discount">-15% vs mercado (247.000 €)</span>
+                            </div>
+                            <p class="listing__details">65 m² · 2 hab · Terraza 20 m² · Reformado</p>
+                            <p class="listing__source">Fuente: Yaencontre · Publicado hace 6 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="email-preview__listing">
+                        <div class="listing__rank">3</div>
+                        <div class="listing__content">
+                            <div class="listing__tag">Interesante</div>
+                            <h4>Estudio céntrico en Malasaña</h4>
+                            <div class="listing__price-row">
+                                <span class="listing__price">125.000 €</span>
+                                <span class="listing__discount">-17% vs mercado (150.000 €)</span>
+                            </div>
+                            <p class="listing__details">38 m² · Estudio · Interior · 4ª sin ascensor</p>
+                            <p class="listing__source">Fuente: Redpiso · Publicado hace 8 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="email-preview__footer">
+                        <p>Generado automáticamente por BuscaCasas IA · <a href="#">Ver en el navegador</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container container--narrow">
+            <div class="section__header">
+                <span class="section__label">Preguntas frecuentes</span>
+                <h2 class="section__title">Resolvemos tus dudas</h2>
+            </div>
+            <div class="faq__list">
+                <div class="faq-item" data-animate>
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿De dónde sacáis los datos de los inmuebles?</span>
+                        <span class="faq-item__icon">+</span>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>Escaneamos automáticamente los principales portales inmobiliarios de España: Fotocasa, Yaencontre, Redpiso, y estamos integrando más. Todos los datos son públicos y se actualizan diariamente.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-animate>
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Cómo sabe la IA si un piso está por debajo de mercado?</span>
+                        <span class="faq-item__icon">+</span>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>Comparamos cada inmueble con el precio medio por metro cuadrado en su zona, tipo de vivienda y características. Si el precio está significativamente por debajo de la media de la zona, lo marcamos como oportunidad y calculamos el descuento real.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-animate>
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Cuánto cuesta BuscaCasas?</span>
+                        <span class="faq-item__icon">+</span>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>Estamos en fase de acceso anticipado. Los primeros usuarios tendrán acceso gratuito durante el período beta y condiciones especiales cuando lancemos la versión de pago. Apúntate ahora para asegurar tu plaza.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-animate>
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Con qué frecuencia recibo informes?</span>
+                        <span class="faq-item__icon">+</span>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>Recibirás un informe diario con las mejores oportunidades del día. Si un día no hay oportunidades relevantes, no te enviamos nada — nada de spam ni relleno.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-animate>
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>¿Solo funciona en Madrid?</span>
+                        <span class="faq-item__icon">+</span>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>Empezamos con Madrid por la densidad de datos, pero estamos expandiendo a Barcelona, Valencia, Málaga y Sevilla. Si te registras, podrás elegir tus zonas de interés cuando las activemos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section section--final" id="cta-final">
+        <div class="container container--narrow">
+            <div class="final-cta" data-animate>
+                <h2>Las mejores oportunidades no esperan.<br>Tú tampoco deberías.</h2>
+                <p>Únete a los inversores que ya reciben oportunidades inmobiliarias verificadas por IA directamente en su email.</p>
+                <form class="final-cta__form" id="finalForm">
+                    <div class="form-group">
+                        <input type="email" id="finalEmail" placeholder="tu@email.com" required autocomplete="email">
+                        <button type="submit" class="btn btn--primary btn--lg">
+                            <span class="btn__text">Solicitar acceso gratuito</span>
+                            <span class="btn__loader" hidden></span>
+                        </button>
+                    </div>
+                    <div class="form-success" id="finalSuccess" hidden>
+                        <span class="form-success__icon">&#10003;</span>
+                        <span>¡Bienvenido! Recibirás tu primer informe muy pronto.</span>
+                    </div>
+                </form>
+                <p class="final-cta__note">Gratis durante la beta · Sin compromiso · Cancela cuando quieras</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <span class="nav__logo-icon">&#9678;</span> BuscaCasas
+            </div>
+            <p class="footer__copy">&copy; 2026 BuscaCasas. Todos los derechos reservados.</p>
+            <div class="footer__links">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="mailto:hola@buscacasas.es">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
