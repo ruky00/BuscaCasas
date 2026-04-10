@@ -370,6 +370,17 @@ img {
     margin-top: 10px;
 }
 
+/* --- Cloudflare Turnstile CAPTCHA --- */
+.cf-turnstile-wrapper {
+    margin-top: 10px;
+}
+
+.captcha-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin: 8px 0 0;
+}
+
 .form-success {
     display: flex;
     align-items: center;

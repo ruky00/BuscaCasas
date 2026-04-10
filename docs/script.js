@@ -31,10 +31,59 @@
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    // --- WEB3FORMS CONFIG ---
-    // Consigue tu access key gratis en https://web3forms.com
-    // Te llegara un email cada vez que alguien se registre
+    // --- CONFIG ---
     var WEB3FORMS_KEY = 'c3c4ff9e-dbb3-401d-bde9-a7fc72080ca9';
+
+    // Cloudflare Turnstile: consigue tu sitekey gratis en https://dash.cloudflare.com -> Turnstile
+    // Usa '1x00000000000000000000AA' para testing (siempre pasa)
+    var TURNSTILE_SITEKEY = '0x4AAAAAAC6N6HjEctFAOxlC';
+
+    // --- CAPTCHA: Render Turnstile widgets cuando el SDK cargue ---
+    var captchaTokens = {};
+
+    function renderTurnstile() {
+        if (typeof turnstile === 'undefined') return;
+
+        var widgets = [
+            { container: '#heroCaptcha', formId: 'heroForm' },
+            { container: '#midCaptcha', formId: 'midForm' },
+            { container: '#finalCaptcha', formId: 'finalForm' },
+        ];
+
+        widgets.forEach(function (w) {
+            var el = document.querySelector(w.container);
+            if (!el || el.dataset.rendered) return;
+            el.dataset.rendered = 'true';
+
+            turnstile.render(w.container, {
+                sitekey: TURNSTILE_SITEKEY,
+                theme: 'light',
+                size: 'flexible',
+                callback: function (token) {
+                    captchaTokens[w.formId] = token;
+                },
+                'expired-callback': function () {
+                    captchaTokens[w.formId] = null;
+                },
+                'error-callback': function () {
+                    captchaTokens[w.formId] = null;
+                },
+            });
+        });
+    }
+
+    // Intentar renderizar; reintentar si el SDK aun no cargo
+    if (typeof turnstile !== 'undefined') {
+        renderTurnstile();
+    } else {
+        var _tsInterval = setInterval(function () {
+            if (typeof turnstile !== 'undefined') {
+                clearInterval(_tsInterval);
+                renderTurnstile();
+            }
+        }, 300);
+        setTimeout(function () { clearInterval(_tsInterval); }, 10000);
+    }
 
     // --- FORM HANDLING ---
     function setupForm(formId, emailId, successId) {
@@ -51,7 +100,11 @@
             var btnLoader = submitBtn.querySelector('.btn__loader');
             var email = emailInput.value.trim();
 
-            // Validate
+            // Limpiar error previo de captcha
+            var prevErr = form.querySelector('.captcha-error');
+            if (prevErr) prevErr.remove();
+
+            // Validar email
             if (!isValidEmail(email)) {
                 emailInput.style.borderColor = '#ef4444';
                 emailInput.focus();
@@ -61,43 +114,63 @@
                 return;
             }
 
+            // Validar CAPTCHA — bloquear si no hay token
+            var token = captchaTokens[formId];
+            if (!token) {
+                var errMsg = document.createElement('p');
+                errMsg.className = 'captcha-error';
+                errMsg.textContent = 'Por favor, completa la verificacion de seguridad.';
+                errMsg.style.cssText = 'color:#ef4444;font-size:0.85rem;margin:8px 0 0;';
+                var wrapper = form.querySelector('.cf-turnstile-wrapper');
+                if (wrapper) wrapper.insertAdjacentElement('afterend', errMsg);
+                return;
+            }
+
             // Show loading
             btnText.hidden = true;
             btnLoader.hidden = false;
             submitBtn.disabled = true;
             emailInput.disabled = true;
 
-            // Enviar lead por email via Web3Forms
-            sendLead(email).then(function () {
+            // Enviar lead por email via Web3Forms + token Turnstile
+            sendLead(email, token).then(function () {
                 btnText.hidden = false;
                 btnLoader.hidden = true;
                 form.querySelector('.form-group').style.display = 'none';
+                var captchaEl = form.querySelector('.cf-turnstile-wrapper');
+                if (captchaEl) captchaEl.style.display = 'none';
                 successEl.hidden = false;
                 storeEmail(email);
                 console.log('[BuscaCasas] Lead enviado:', email);
             }).catch(function (err) {
-                console.warn('[BuscaCasas] Web3Forms no disponible, guardando localmente:', err.message);
-                // Fallback: guardar localmente y mostrar exito igualmente
+                console.warn('[BuscaCasas] Web3Forms error, guardando localmente:', err.message);
                 btnText.hidden = false;
                 btnLoader.hidden = true;
                 form.querySelector('.form-group').style.display = 'none';
+                var captchaEl = form.querySelector('.cf-turnstile-wrapper');
+                if (captchaEl) captchaEl.style.display = 'none';
                 successEl.hidden = false;
                 storeEmail(email);
             });
         });
     }
 
-    function sendLead(email) {
+    function sendLead(email, captchaToken) {
+        var payload = {
+            access_key: WEB3FORMS_KEY,
+            subject: 'Nuevo lead en BuscaCasas',
+            from_name: 'BuscaCasas Landing',
+            email: email,
+            message: 'Nuevo interesado solicita acceso: ' + email,
+        };
+        if (captchaToken) {
+            payload['cf-turnstile-response'] = captchaToken;
+        }
+
         return fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                access_key: WEB3FORMS_KEY,
-                subject: 'Nuevo lead en BuscaCasas',
-                from_name: 'BuscaCasas Landing',
-                email: email,
-                message: 'Nuevo interesado solicita acceso: ' + email,
-            }),
+            body: JSON.stringify(payload),
         }).then(function (res) {
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return res.json();

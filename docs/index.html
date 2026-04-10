@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Cloudflare Turnstile (CAPTCHA invisible/gratuito) -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
 
@@ -58,6 +60,7 @@
                             <span class="btn__loader" hidden></span>
                         </button>
                     </div>
+                    <div class="cf-turnstile-wrapper" id="heroCaptcha"></div>
                     <p class="hero__form-note">Sin spam. Sin tarjeta. Solo oportunidades.</p>
                     <div class="form-success" id="heroSuccess" hidden>
                         <span class="form-success__icon">&#10003;</span>
@@ -184,6 +187,7 @@
                             <span class="btn__loader" hidden></span>
                         </button>
                     </div>
+                    <div class="cf-turnstile-wrapper" id="midCaptcha"></div>
                     <div class="form-success" id="midSuccess" hidden>
                         <span class="form-success__icon">&#10003;</span>
                         <span>¡Registrado! Prepárate para recibir oportunidades.</span>
@@ -389,6 +393,7 @@
                             <span class="btn__loader" hidden></span>
                         </button>
                     </div>
+                    <div class="cf-turnstile-wrapper" id="finalCaptcha"></div>
                     <div class="form-success" id="finalSuccess" hidden>
                         <span class="form-success__icon">&#10003;</span>
                         <span>¡Bienvenido! Recibirás tu primer informe muy pronto.</span>
