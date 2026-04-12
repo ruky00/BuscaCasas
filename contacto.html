@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — BuscaCasas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .legal { padding: 140px 0 80px; }
+        .legal h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+        .legal__subtitle { font-size: 16px; color: var(--color-text-secondary); margin-bottom: 40px; line-height: 1.6; }
+        .legal h2 { font-size: 20px; font-weight: 700; margin-top: 36px; margin-bottom: 12px; }
+        .legal p, .legal li { font-size: 15px; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 12px; }
+        .legal ul { padding-left: 24px; margin-bottom: 16px; }
+        .legal a { color: var(--color-primary); }
+
+        .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 32px; }
+        .contact-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        .contact-card:hover { border-color: var(--color-primary); }
+        .contact-card__icon { font-size: 32px; margin-bottom: 16px; }
+        .contact-card__title { font-size: 16px; font-weight: 700; color: var(--color-text); margin-bottom: 8px; }
+        .contact-card__text { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 12px; }
+        .contact-card__link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        .contact-card__link:hover { text-decoration: underline; }
+
+        .contact-faq { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--color-border); }
+        .contact-faq__item { margin-bottom: 24px; }
+        .contact-faq__q { font-size: 15px; font-weight: 700; color: var(--color-text); margin-bottom: 6px; }
+        .contact-faq__a { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav" id="nav">
+        <div class="container nav__inner">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-icon">&#9678;</span> BuscaCasas
+            </a>
+            <div class="nav__links">
+                <a href="index.html">Inicio</a>
+                <a href="privacidad.html">Privacidad</a>
+                <a href="terminos.html">Terminos</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="legal">
+        <div class="container container--narrow">
+            <h1>Contacto</h1>
+            <p class="legal__subtitle">Estamos aqui para ayudarte. Si tienes preguntas sobre el servicio, quieres darte de baja, o necesitas ejercer tus derechos sobre tus datos, contactanos por cualquiera de estos medios.</p>
+
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-card__icon">&#9993;</div>
+                    <div class="contact-card__title">Email general</div>
+                    <p class="contact-card__text">Para consultas, sugerencias o informacion sobre el servicio.</p>
+                    <a href="mailto:hola@buscacasas.es" class="contact-card__link">hola@buscacasas.es</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card__icon">&#128274;</div>
+                    <div class="contact-card__title">Privacidad y datos</div>
+                    <p class="contact-card__text">Para ejercer tus derechos RGPD: acceso, rectificacion, supresion, oposicion o portabilidad.</p>
+                    <a href="mailto:hola@buscacasas.es" class="contact-card__link">hola@buscacasas.es</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card__icon">&#10060;</div>
+                    <div class="contact-card__title">Darse de baja</div>
+                    <p class="contact-card__text">Envianos un email y eliminaremos tu correo de nuestros sistemas en un maximo de 48 horas.</p>
+                    <a href="mailto:hola@buscacasas.es?subject=Baja%20del%20servicio" class="contact-card__link">Solicitar baja</a>
+                </div>
+            </div>
+
+            <div class="contact-faq">
+                <h2>Preguntas frecuentes sobre contacto</h2>
+
+                <div class="contact-faq__item">
+                    <p class="contact-faq__q">¿Cual es el tiempo de respuesta?</p>
+                    <p class="contact-faq__a">Respondemos a todas las consultas en un plazo maximo de 48 horas laborables.</p>
+                </div>
+
+                <div class="contact-faq__item">
+                    <p class="contact-faq__q">¿Que datos necesito para darme de baja?</p>
+                    <p class="contact-faq__a">Solo necesitas enviarnos un email desde la direccion con la que te registraste indicando que deseas cancelar el servicio.</p>
+                </div>
+
+                <div class="contact-faq__item">
+                    <p class="contact-faq__q">¿Mis datos se usan para algo mas que enviar informes?</p>
+                    <p class="contact-faq__a"><strong>No.</strong> Tu correo electronico se utiliza unica y exclusivamente para enviarte los informes de oportunidades inmobiliarias. No se comparte, vende ni usa con ningun otro fin. Puedes consultar nuestra <a href="privacidad.html">Politica de Privacidad</a> para mas detalle.</p>
+                </div>
+
+                <div class="contact-faq__item">
+                    <p class="contact-faq__q">¿Como ejerzo mis derechos RGPD?</p>
+                    <p class="contact-faq__a">Envianos un email a <a href="mailto:hola@buscacasas.es">hola@buscacasas.es</a> indicando que derecho deseas ejercer (acceso, rectificacion, supresion, oposicion o portabilidad). Responderemos en el plazo legalmente establecido.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <span class="nav__logo-icon">&#9678;</span> BuscaCasas
+            </div>
+            <p class="footer__copy">&copy; 2026 BuscaCasas. Todos los derechos reservados.</p>
+            <div class="footer__links">
+                <a href="privacidad.html">Privacidad</a>
+                <a href="terminos.html">Terminos</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
